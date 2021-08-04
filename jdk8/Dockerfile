@@ -13,7 +13,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get -y install openjdk-8-jdk
 
 # Install repo tool
-RUN curl https://storage.googleapis.com/git-repo-downloads/repo \
+RUN curl https://storage.googleapis.com/git-repo-downloads/repo-1 \
       -o /usr/local/bin/repo && \
     chmod +x /usr/local/bin/repo
 
