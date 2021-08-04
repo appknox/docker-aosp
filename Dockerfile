@@ -6,11 +6,13 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get -y install git-core gnupg flex bison gperf build-essential \
       zip curl zlib1g-dev gcc-multilib g++-multilib libc6-dev-i386 \
       lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z-dev ccache \
-      libgl1-mesa-dev libxml2-utils xsltproc unzip python
+      libgl1-mesa-dev libxml2-utils xsltproc unzip python3
 
 # Install JDK
 RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get -y install openjdk-8-jdk
+
+RUN update-alternatives --install /bin/python python /usr/bin/python3 1
 
 # Install repo tool
 RUN curl https://storage.googleapis.com/git-repo-downloads/repo-1 \
@@ -18,8 +20,8 @@ RUN curl https://storage.googleapis.com/git-repo-downloads/repo-1 \
     chmod +x /usr/local/bin/repo
 
 # Set up workspace
-RUN git config --global user.email "aosp-builder@example.com" && \
-    git config --global user.name "AOSP builder" && \
+RUN git config --global user.email "engineering@appknox.com" && \
+    git config --global user.name "Appknox Enginering" && \
     git config --global color.ui auto
 
 # Volumes for AOSP source

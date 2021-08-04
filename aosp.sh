@@ -76,7 +76,7 @@ case "$command" in
     source="https://android.googlesource.com/mirror/manifest"
     shift
     cd "$MIRROR_PATH"
-    test -d .repo || repo init -u "$source" --mirror
+    test -d .repo || python3 repo init -u "$source" --mirror
     repo sync "$@"
     ;;
   checkout-branch)
